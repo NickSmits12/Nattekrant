@@ -338,34 +338,6 @@ function initDynamicContent() {
  * @param {Element} container - element with data-dynamic="services"
  * @param {Array} services - array of service objects from content.json
  */
-//function buildServices(container, services) {
-  //container.innerHTML = "";
-
- //services.forEach((service) => {
-    //const article = document.createElement("article");
-    //article.className = "card card--service";
-
-    //const icon = document.createElement("div");
-   // icon.className = "card__icon";
-   // icon.setAttribute("aria-hidden", "true");
-   // icon.innerHTML = service.icon || '<img src="assets/images/icon-leak.svg" alt="" class="card__icon-image" />';
-
-    const title = document.createElement("h2");
-    title.className = "card__title";
-    title.textContent = service.name || "Dienst";
-
-    const text = document.createElement("p");
-    text.className = "card__text";
-    text.textContent =
-      service.description || "Vervang deze beschrijving in content.json.";
-
-    article.appendChild(icon);
-    article.appendChild(title);
-    article.appendChild(text);
-
-    container.appendChild(article);
-  });
-}
 
 /**
  * Builds FAQ items into the provided container based on JSON data.
