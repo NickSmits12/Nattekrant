@@ -42,27 +42,27 @@
     {
       "id": "tijd",
       "question": "Hoe snel kunt u ter plaatse zijn bij een lekkage?",
-      "answer": "In deze demo kunt u aangeven dat u meestal binnen enkele uren ter plaatse bent bij spoedgevallen. Pas deze tekst aan naar uw eigen praktijk en regio."
+      "answer": "binnen 2 uur proberen wij te reageren op spoedgevallen."
     },
     {
       "id": "tarief",
       "question": "Wat is uw uurtarief?",
-      "answer": "Vervang dit antwoord door uw eigen tarieven. Bijvoorbeeld: een starttarief inclusief eerste uur, exclusief materiaal en voorrijkosten."
+      "answer": "afhankelijk van de klus en het werk wat nodig is word dit in overleg met de klant bepaald."
     },
     {
       "id": "offerte",
       "question": "Maakt u offertes op maat?",
-      "answer": "Ja, in dit voorbeeld maakt de loodgieter een vrijblijvende offerte op basis van foto’s, tekeningen of een korte opname op locatie."
+      "answer": "zeker, stuur gerust een mailtje met uw vragen en wij gaan voor u aan de slag."
     },
     {
       "id": "garantie",
       "question": "Geef u garantie op het uitgevoerde werk?",
-      "answer": "Beschrijf hier uw garantievoorwaarden. Bijvoorbeeld: 1 jaar garantie op arbeid, volgens fabrieksvoorwaarden op materialen."
+      "answer": "mocht er onverwachts iets misgaan, dan zorgen wij voor een oplossing, binnen 1 jaar van heeft u bij ons volledig garantie."
     },
-    {
-      "id": "samenwerking",
-      "question": "Werkt u samen met aannemers of andere vakmensen?",
-      "answer": "Leg hier uit of u vast samenwerkt met aannemers, tegelzetters of elektriciens, zodat klanten weten dat u een complete verbouwing kunt begeleiden."
+        {
+          "id": "samenwerking",
+          "question": "Werkt u samen met aannemers of andere vakmensen?",
+          "answer": "afhankelijk van de klus en het werk wat nodig is word dit in overleg met de klant bepaald, wij hebben in het verleden eerder samen gewerkt met vakmensen dus is deze optie er zeker."
+        }
+      ]
     }
-  ]
-}
