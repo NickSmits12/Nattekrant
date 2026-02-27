@@ -314,9 +314,9 @@ function initDynamicContent() {
     .then((data) => {
       dynamicContainers.forEach((container) => {
         const type = container.getAttribute("data-dynamic");
-        if (type === "services" && Array.isArray(data.services)) {
-          buildServices(container, data.services);
-        } else if (type === "faqs" && Array.isArray(data.faqs)) {
+
+        // We slaan de services over omdat deze statisch in HTML staan
+        if (type === "faqs" && Array.isArray(data.faqs)) {
           buildFaqs(container, data.faqs);
         }
       });
@@ -325,7 +325,6 @@ function initDynamicContent() {
       initFaqAccordion();
     })
     .catch((error) => {
-      // In case of any error, we gracefully keep the static HTML visible.
       console.warn(
         "[De Natte Krant] Could not load dynamic content from content.json:",
         error
@@ -338,7 +337,33 @@ function initDynamicContent() {
  * @param {Element} container - element with data-dynamic="services"
  * @param {Array} services - array of service objects from content.json
  */
+function buildServices(container, services) {
+  container.innerHTML = ""; // alles leegmaken
 
+  services.forEach((service) => {
+    const article = document.createElement("article");
+    article.className = "card card--service";
+
+    const icon = document.createElement("div");
+    icon.className = "card__icon";
+    icon.setAttribute("aria-hidden", "true");
+    icon.innerHTML = service.icon || '<img src="assets/images/icon-leak.svg" alt="" class="card__icon-image" />';
+
+    const title = document.createElement("h2");
+    title.className = "card__title";
+    title.textContent = service.name || "Dienst";
+
+    const text = document.createElement("p");
+    text.className = "card__text";
+    text.textContent = service.description || "Vervang deze beschrijving in content.json.";
+
+    article.appendChild(icon);
+    article.appendChild(title);
+    article.appendChild(text);
+
+    container.appendChild(article);
+  });
+}
 /**
  * Builds FAQ items into the provided container based on JSON data.
  * @param {Element} container - element with data-dynamic="faqs"
