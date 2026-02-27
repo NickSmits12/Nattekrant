@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- 
+      De Natte Krant Loodgieters - Contact Page
+      ------------------------------------------------------------------
+      This page contains:
+      - A contact form (name, email, message)
+      - Direct contact details (phone, email, address placeholder)
+      - Optional embedded map area (placeholder iframe)
+
+      FORM BEHAVIOUR:
+      - The form is client-side only by default and does not submit data
+        to a server.
+      - script.js intercepts the submit event, performs simple validation,
+        and shows a success message.
+      - For production, replace the placeholder handler in script.js with
+        your own backend endpoint or a service like Formspree.
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contact your plumber in Hengelo. Emergency service available. Quick response guarantee. De Natte Krant Loodgieters." />
+    <title>Contact | Plumber in Hengelo | De Natte Krant Loodgieters</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body data-page="contact">
+    <!-- ========================= HEADER & NAV ========================= -->
+    <header class="site-header" id="top">
+      <div class="container site-header__inner">
+        <a href="index.html" class="site-header__brand">
+          <img
+            src="assets/images/logo.svg"
+            alt="De Natte Krant Loodgieters logo"
+            class="site-header__logo"
+            width="40"
+            height="40"
+          />
+          <span class="site-header__title">De Natte Krant Loodgieters</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <!-- Language Switcher -->
+          <div class="language-switcher">
+            <button class="language-btn active" data-lang="en" aria-label="English">EN</button>
+            <button class="language-btn" data-lang="nl" aria-label="Dutch (Nederlands)">NL</button>
+            <button class="language-btn" data-lang="de" aria-label="German (Deutsch)">DE</button>
+          </div>
+
+          <ul class="site-nav__list">
+            <li class="site-nav__item">
+              <a href="index.html" class="site-nav__link">Home</a>
+            </li>
+            <li class="site-nav__item">
+              <a href="services.html" class="site-nav__link">Services</a>
+            </li>
+            <li class="site-nav__item">
+              <a href="faq.html" class="site-nav__link">FAQ</a>
+            </li>
+            <li class="site-nav__item">
+              <a href="contact.html" class="site-nav__link site-nav__link--active"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ========================= MAIN CONTENT ========================= -->
+    <main class="site-main">
+      <section class="page-header" aria-labelledby="contact-heading">
+        <div class="container">
+          <h1 class="page-header__title" id="contact-heading" data-i18n="contact-page-title">
+            Neem contact op
+          </h1>
+          <p class="page-header__subtitle" data-i18n="contact-page-subtitle">
+            Vul het formulier in voor een vraag of vrijblijvende offerte. U kunt
+            natuurlijk ook direct bellen of mailen.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Contactformulier en gegevens">
+        <div class="container grid grid--two-columns">
+          <!-- CONTACT FORM -->
+          <div>
+            <!-- 
+              The form does not have an action attribute because this is a
+              static demo. For production:
+              - Set action="https://uw-backend-endpoint" and method="POST"
+                OR
+              - Integrate with a static form service.
+            -->
+            <form class="form" id="contact-form" novalidate>
+              <div class="form__group">
+                <label class="form__label" for="contact-name" data-i18n="contact-form-name-label">Naam</label>
+                <input
+                  class="form__input"
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  autocomplete="name"
+                  required
+                  placeholder="Uw naam"
+                  data-i18n="contact-form-name-placeholder"
+                />
+                <p class="form__error" data-error-for="contact-name"></p>
+              </div>
+
+              <div class="form__group">
+                <label class="form__label" for="contact-email" data-i18n="contact-form-email-label">E-mail</label>
+                <input
+                  class="form__input"
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                  placeholder="u@example.com"
+                  data-i18n="contact-form-email-placeholder"
+                />
+                <p class="form__error" data-error-for="contact-email"></p>
+              </div>
+
+              <div class="form__group">
+                <label class="form__label" for="contact-message" data-i18n="contact-form-message-label">Bericht</label>
+                <textarea
+                  class="form__textarea"
+                  id="contact-message"
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Beschrijf kort uw vraag of klus."
+                  data-i18n="contact-form-message-placeholder"
+                ></textarea>
+                <p class="form__error" data-error-for="contact-message"></p>
+              </div>
+
+              <button class="btn btn--primary" type="submit" data-i18n="contact-form-submit">
+                Verstuur bericht
+              </button>
+
+              <!-- Placeholder success message managed by script.js -->
+              <p class="form__success" id="contact-success" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <!-- CONTACT DETAILS + MAP -->
+          <div class="contact-details">
+            <h2 class="contact-details__heading" data-i18n="contact-details-heading">Direct contact</h2>
+
+            <!-- 
+              Contact details updated to be more prominent and personal:
+              - Phone and email are shown as primary actions (no icons, by request)
+              - Phone uses a tel: link for one-tap calling on mobile
+            -->
+            <div class="contact-details__panel" aria-label="Directe contactgegevens">
+              <p class="contact-details__intro" data-i18n="contact-details-intro">
+                Voor spoed: bel direct. Voor offertes: stuur een bericht of mail ons.
+              </p>
+
+              <div class="contact-details__primary">
+                <a class="contact-details__primary-link" href="tel:+31612345678" aria-label="Call 06-12345678">
+                  06-12345678
+                </a>
+                <a
+                  class="contact-details__primary-link contact-details__primary-link--muted"
+                  href="mailto:info@denattekrant-loodgieters.nl"
+                  aria-label="Email info@denattekrant-loodgieters.nl"
+                >
+                  info@denattekrant-loodgieters.nl
+                </a>
+              </div>
+
+              <ul class="contact-details__list" aria-label="Aanvullende contactinformatie">
+                <li>
+                  <strong>Regio:</strong> Amsterdam en omstreken (placeholder).
+                </li>
+                <li>
+                  <strong>Openingstijden:</strong> Op afspraak (placeholder).
+                </li>
+              </ul>
+            </div>
+
+            <!-- Embedded Google Maps (fictional location: Amsterdam) -->
+            <!-- 
+              The iframe below uses a simplified Google Maps embed:
+              - No custom API key required for this demo.
+              - You can update the "q=Amsterdam" part of the URL to a more
+                specific address when you have one.
+              - The .map-embed wrapper in style.css keeps the map responsive.
+            -->
+            <div
+              class="map-embed"
+              aria-label="Kaart van Amsterdam en omgeving"
+            >
+              <iframe
+                title="Route naar De Natte Krant Loodgieters (voorbeeld Amsterdam)"
+                src="https://www.google.com/maps?q=Amsterdam&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================= FOOTER ========================= -->
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <!-- 
+          Footer simplified:
+          - Navigation links removed, as requested.
+          - Content centered with only core business info and copyright.
+        -->
+        <div class="site-footer__brand">
+          <span class="site-footer__title">De Natte Krant Loodgieters</span>
+          <p class="site-footer__text">
+            Met een duidelijke contactpagina verlaag je de drempel voor klanten
+            om een vraag te stellen of een offerte aan te vragen.
+          </p>
+        </div>
+        <p class="site-footer__legal">
+          &copy; <span id="footer-year"></span> De Natte Krant Loodgieters.
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

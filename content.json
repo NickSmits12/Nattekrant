@@ -1,0 +1,68 @@
+{
+  "_instructions": "This file controls dynamic content for the Services and FAQ pages. Edit the 'services' and 'faqs' arrays to change what appears on the website. Keep the structure of each object the same (id, name/question, description/answer, icon) so script.js can read it correctly.",
+  "services": [
+    {
+      "id": "lekkage",
+      "name": "Lekkage & leidingwerk",
+      "description": "Opsporen en repareren van lekkages in keuken, badkamer en kruipruimte. Snel ter plaatse om verdere schade te voorkomen.",
+      "icon": ""
+    },
+    {
+      "id": "verstoppingen",
+      "name": "Verstoppingen",
+      "description": "Ontstoppen van afvoeren, toiletten en riolering met professioneel gereedschap, zonder onnodig hak- en breekwerk.",
+      "icon": ""
+    },
+    {
+      "id": "sanitair",
+      "name": "Sanitair plaatsen & vervangen",
+      "description": "Plaatsen van nieuwe douches, toiletten, kranen en baden. Strakke afwerking en duidelijke communicatie over de planning.",
+      "icon": ""
+    },
+    {
+      "id": "verwarming",
+      "name": "Verwarming & leidingen",
+      "description": "Aanpassen of aanleggen van leidingwerk voor radiatoren en vloerverwarming in overleg met uw installateur.",
+      "icon": ""
+    },
+    {
+      "id": "renovatie",
+      "name": "Renovatie & verbouw",
+      "description": "Volledige loodgietersbegeleiding bij verbouwing of renovatie. Van ontwerp tot oplevering in samenwerking met andere vakmensen.",
+      "icon": ""
+    },
+    {
+      "id": "spoed",
+      "name": "Spoedservice",
+      "description": "Hulp bij plotselinge lekkages of verstoppingen. Beschrijf hier uw eigen bereikbaarheid (bijvoorbeeld 24/7 of alleen werkdagen).",
+      "icon": ""
+    }
+  ],
+  "faqs": [
+    {
+      "id": "tijd",
+      "question": "Hoe snel kunt u ter plaatse zijn bij een lekkage?",
+      "answer": "In deze demo kunt u aangeven dat u meestal binnen enkele uren ter plaatse bent bij spoedgevallen. Pas deze tekst aan naar uw eigen praktijk en regio."
+    },
+    {
+      "id": "tarief",
+      "question": "Wat is uw uurtarief?",
+      "answer": "Vervang dit antwoord door uw eigen tarieven. Bijvoorbeeld: een starttarief inclusief eerste uur, exclusief materiaal en voorrijkosten."
+    },
+    {
+      "id": "offerte",
+      "question": "Maakt u offertes op maat?",
+      "answer": "Ja, in dit voorbeeld maakt de loodgieter een vrijblijvende offerte op basis van foto’s, tekeningen of een korte opname op locatie."
+    },
+    {
+      "id": "garantie",
+      "question": "Geef u garantie op het uitgevoerde werk?",
+      "answer": "Beschrijf hier uw garantievoorwaarden. Bijvoorbeeld: 1 jaar garantie op arbeid, volgens fabrieksvoorwaarden op materialen."
+    },
+    {
+      "id": "samenwerking",
+      "question": "Werkt u samen met aannemers of andere vakmensen?",
+      "answer": "Leg hier uit of u vast samenwerkt met aannemers, tegelzetters of elektriciens, zodat klanten weten dat u een complete verbouwing kunt begeleiden."
+    }
+  ]
+}

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- 
+      De Natte Krant Loodgieters - Home Page
+      ------------------------------------------------------------------
+      This is the main landing page for the demo plumbing portfolio site.
+      Structure overview:
+      - Global header with logo, navigation, and optional dark mode toggle
+      - Hero section with company name, slogan, and primary call-to-action
+      - Highlighted services strip (static, with optional dynamic enhancement)
+      - About / why-choose-us section
+      - Call-to-action strip linking to the contact page
+      - Global footer with contact details and quick links
+
+      HOW TO EDIT TEXT:
+      - Replace placeholder text such as the slogan, intro paragraph, and bullet points
+        with real company information.
+      - Keep the HTML structure and class names the same so the shared CSS and JS
+        in style.css and script.js keep working across all pages.
+
+      DESIGN NOTES:
+      - Colors are controlled via CSS variables in style.css using blue and orange.
+      - Typography, spacing, and layout are also defined in style.css to keep the
+        markup clean and semantic.
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Professional plumber in Hengelo. Fast emergency service, clear pricing, reliable results. De Natte Krant Loodgieters." />
+    <title>Plumber in Hengelo | De Natte Krant Loodgieters</title>
+
+    <!-- LocalBusiness Schema for Local SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "De Natte Krant Loodgieters",
+      "image": "https://example.com/assets/images/logo.svg",
+      "description": "Professional plumbing services in Hengelo. Emergency repairs, installations, and renovations with fast response times.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "[Your Street Address]",
+        "addressLocality": "Hengelo",
+        "addressRegion": "Gelderland",
+        "postalCode": "[Your Postal Code]",
+        "addressCountry": "NL"
+      },
+      "telephone": "+31 6 12 345 678",
+      "email": "info@loodgieters.nl",
+      "url": "https://example.com",
+      "areaServed": "Hengelo",
+      "priceRange": "€€",
+      "serviceType": ["Emergency Plumbing Repair", "Leak Detection", "Pipe Installation", "Bathroom Renovation"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "4"
+      }
+    }
+    </script>
+
+    <!-- Primary stylesheet for all pages -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <!-- 
+    data-page attribute is used by script.js to initialize page-specific
+    functionality. Do not remove; feel free to change its value only if
+    you also update the corresponding logic in script.js.
+  -->
+  <body data-page="home">
+    <!-- ========================= SITE HEADER & NAVIGATION ========================= -->
+    <header class="site-header" id="top">
+      <div class="container site-header__inner">
+        <!-- 
+          Logo area:
+          - The <img> uses a simple SVG placeholder stored in assets/images.
+          - Replace src with your real logo file path once available.
+        -->
+        <a href="index.html" class="site-header__brand">
+          <img
+            src="assets/images/logo.svg"
+            alt="De Natte Krant Loodgieters logo"
+            class="site-header__logo"
+            width="40"
+            height="40"
+          />
+          <span class="site-header__title">De Natte Krant Loodgieters</span>
+        </a>
+
+        <!-- Simple, modern navigation -->
+        <nav class="site-nav" aria-label="Primary navigation">
+          <!-- Language Switcher -->
+          <div class="language-switcher">
+            <button class="language-btn active" data-lang="en" aria-label="English">EN</button>
+            <button class="language-btn" data-lang="nl" aria-label="Dutch (Nederlands)">NL</button>
+            <button class="language-btn" data-lang="de" aria-label="German (Deutsch)">DE</button>
+          </div>
+
+          <!-- 
+            Links:
+            - Smooth scrolling is applied to any link that points to an in-page
+              anchor (href starting with "#") by script.js.
+            - Links pointing to other HTML pages behave as normal page loads.
+          -->
+          <ul class="site-nav__list">
+            <li class="site-nav__item">
+              <a href="index.html" class="site-nav__link site-nav__link--active">Home</a>
+            </li>
+            <li class="site-nav__item">
+              <a href="services.html" class="site-nav__link">Wat kunnen we voor u betekenen?</a>
+            </li>
+            <li class="site-nav__item">
+              <a href="faq.html" class="site-nav__link">krijg direct antwoord op uw vraag.</a>
+            </li>
+            <li class="site-nav__item">
+              <a href="contact.html" class="site-nav__link">Neem direct contact op!</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ========================= MAIN CONTENT ========================= -->
+    <main class="site-main">
+      <!-- ========================= HERO SECTION ========================= -->
+      <!-- 
+        Hero section updated to:
+        - Use a short, personal intro about the company.
+        - Sit on top of a drain-style background image (see .hero in style.css).
+        - Highlight a single main call-to-action: "Call us now".
+      -->
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <h1 class="hero__title" id="hero-heading" data-i18n="hero-title">
+              Your trusted plumber in Hengelo. Fast, professional, reliable.
+            </h1>
+            <p class="hero__subtitle">
+              Expert plumbing for emergency repairs, installations, and renovations. 
+              Fast response. Clear pricing. Professional results. Call now for same-day service.
+            </p>
+            <div class="hero__actions">
+              <!-- 
+                Primary hero call-to-action:
+                - Uses the requested label "Call us now".
+                - Uses a tel: link so mobile visitors can call directly.
+                - Phone number will also be surfaced clearly on the contact page.
+              -->
+              <a href="tel:+31612345678" class="btn btn--primary" data-i18n="hero-cta">
+                Bel ons direct
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= WHY CHOOSE US SECTION ========================= -->
+      <section class="section" aria-labelledby="why-choose-us-heading">
+        <div class="container">
+          <header class="section-heading section-heading--left">
+            <h2 class="section-heading__title" id="why-choose-us-heading" data-i18n="why-choose-heading">
+              Why Hengelo residents trust us
+            </h2>
+            <p class="section-heading__subtitle" data-i18n="why-choose-subtitle">
+              Fast response, clear pricing, and professional results every time.
+            </p>
+          </header>
+
+          <ul class="feature-list">
+            <li class="feature-list__item">
+              <div class="feature-list__icon" aria-hidden="true">
+                <img src="assets/images/icon-clock.svg" alt="" width="24" height="24" />
+              </div>
+              <div>
+                <h3 class="feature-list__title" data-i18n="benefit-1-title">Emergency Response — 2 Hour Guarantee</h3>
+                <p class="feature-list__text" data-i18n="benefit-1-text">
+                  Leaks waiting? We arrive within hours for emergency calls in Hengelo. 
+                  Minimize damage. Restore peace of mind.
+                </p>
+              </div>
+            </li>
+            <li class="feature-list__item">
+              <div class="feature-list__icon" aria-hidden="true">
+                <img src="assets/images/icon-leak.svg" alt="" width="24" height="24" />
+              </div>
+              <div>
+                <h3 class="feature-list__title" data-i18n="benefit-2-title">Clear Pricing — No Surprises</h3>
+                <p class="feature-list__text" data-i18n="benefit-2-text">
+                  Upfront quotes before we start. No hidden fees. Transparent pricing you can trust. 
+                  What you see is what you pay.
+                </p>
+              </div>
+            </li>
+            <li class="feature-list__item">
+              <div class="feature-list__icon" aria-hidden="true">
+                <img src="assets/images/icon-drain.svg" alt="" width="24" height="24" />
+              </div>
+              <div>
+                <h3 class="feature-list__title" data-i18n="benefit-3-title">Professional Expertise — 15+ Years</h3>
+                <p class="feature-list__text" data-i18n="benefit-3-text">
+                  Licensed, skilled plumbers. Meticulous workmanship. Every project completed right. 
+                  Your satisfaction guaranteed.
+                </p>
+              </div>
+            </li>
+            <li class="feature-list__item">
+              <div class="feature-list__icon" aria-hidden="true">
+                <img src="assets/images/icon-heating.svg" alt="" width="24" height="24" />
+              </div>
+              <div>
+                <h3 class="feature-list__title" data-i18n="benefit-4-title">Hengelo-Based — Local Trust</h3>
+                <p class="feature-list__text" data-i18n="benefit-4-text">
+                  We're your neighbors. Serving Hengelo homeowners for years. 
+                  Reliable, respectful, and always professional.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ========================= HIGHLIGHTED SERVICES STRIP ========================= -->
+      <!-- 
+        This strip gives a quick overview of core services.
+        For more detailed listings, see services.html. The content here
+        is static on purpose, but you can align it with the JSON in content.json
+        so the messaging stays consistent.
+      -->
+      <section class="section section--muted" aria-labelledby="home-services-heading">
+        <div class="container">
+          <header class="section-heading">
+            <h2 class="section-heading__title" id="home-services-heading" data-i18n="services-heading">
+              Services We Provide
+            </h2>
+            <p class="section-heading__subtitle" data-i18n="services-subtitle">
+              From emergency repairs to complete renovations. Fast, reliable, professional.
+            </p>
+          </header>
+
+          <div class="grid grid--services-highlight">
+            <article class="card card--service">
+              <div class="card__icon" aria-hidden="true">
+                <!-- Icon image replacing emoji for leakage/repair -->
+                <img
+                  src="assets/images/icon-leak.svg"
+                  alt=""
+                  class="card__icon-image"
+                  width="22"
+                  height="22"
+                  loading="lazy"
+                />
+              </div>
+              <h3 class="card__title">Lekkage &amp; reparatie</h3>
+              <p class="card__text">
+                Snelle opsporing en reparatie van lekkages om schade te
+                beperken en comfort te herstellen.
+              </p>
+            </article>
+
+            <article class="card card--service">
+              <div class="card__icon" aria-hidden="true">
+                <!-- Icon image replacing emoji for bathroom/kitchen -->
+                <img
+                  src="assets/images/icon-bathroom.svg"
+                  alt=""
+                  class="card__icon-image"
+                  width="22"
+                  height="22"
+                  loading="lazy"
+                />
+              </div>
+              <h3 class="card__title">Badkamer &amp; keuken</h3>
+              <p class="card__text">
+                Van kleine, huishoudelijke aanpassingen tot complete verbouwingen – strak
+                afgewerkt en goed doordacht.
+              </p>
+            </article>
+
+            <article class="card card--service">
+              <div class="card__icon" aria-hidden="true">
+                <!-- Icon image replacing emoji for heating/maintenance -->
+                <img
+                  src="assets/images/icon-heating.svg"
+                  alt=""
+                  class="card__icon-image"
+                  width="22"
+                  height="22"
+                  loading="lazy"
+                />
+              </div>
+              <h3 class="card__title">Verwarming &amp; onderhoud</h3>
+              <p class="card__text">
+                Betrouwbare installatie en onderhoud van leidingen en systemen
+                voor een warm en veilig huis.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- (About / why-us section removed on request to keep the page concise) -->
+
+      <!-- ========================= CALL TO ACTION STRIP ========================= -->
+      <section class="section section--accent" aria-labelledby="cta-heading">
+        <div class="container section--accent__inner">
+          <div>
+            <h2 class="section-heading__title" id="cta-heading" data-i18n="cta-heading">
+              Need a Plumber Today?
+            </h2>
+            <p class="section-heading__subtitle" data-i18n="cta-subtitle">
+              Emergency repair, new installation, or full renovation. 
+              Contact us now for a quick quote or same-day service.
+            </p>
+          </div>
+          <a href="contact.html" class="btn btn--light" data-i18n="cta-button">
+            Request a Quote
+          </a>
+        </div>
+      </section>
+
+      <!-- ========================= CUSTOMER REVIEWS ========================= -->
+      <!-- 
+        Reviews section:
+        - Shows 4 fictitious customer reviews in a 2x2 grid on desktop.
+        - On smaller screens the cards stack automatically via .grid--reviews.
+        - Stars are rendered as text instead of avatars, as requested.
+      -->
+      <section class="section" aria-labelledby="reviews-heading">
+        <div class="container">
+          <header class="section-heading">
+            <h2 class="section-heading__title" id="reviews-heading">
+              Wat klanten over ons zeggen
+            </h2>
+            <p class="section-heading__subtitle">
+              Fictieve recensies, kunnen worden gebaseerd op google reviews of mond op mond reviews.
+            </p>
+          </header>
+
+          <div class="grid grid--reviews">
+            <article class="card card--review">
+              <p class="card__rating">
+                <span aria-hidden="true">★★★★★</span>
+                <span class="card__rating-label" aria-label="5 van de 5 sterren">
+                  5.0
+                </span>
+              </p>
+              <h3 class="card__name">Sanne, Amsterdam</h3>
+              <p class="card__meta">Lekkage in de badkamer</p>
+              <p class="card__text">
+                Binnen een dag geholpen en alles netjes afgewerkt. Duidelijke
+                uitleg over wat er mis was en wat er is gedaan.
+              </p>
+            </article>
+
+            <article class="card card--review">
+              <p class="card__rating">
+                <span aria-hidden="true">★★★★☆</span>
+                <span class="card__rating-label" aria-label="4 van de 5 sterren">
+                  4.0
+                </span>
+              </p>
+              <h3 class="card__name">Mark, Haarlem</h3>
+              <p class="card__meta">Nieuwe keuken aangesloten</p>
+              <p class="card__text">
+                Erg prettig contact en meedenkend over de indeling. Kleine
+                aanpassing achteraf werd zonder gedoe opgelost.
+              </p>
+            </article>
+
+            <article class="card card--review">
+              <p class="card__rating">
+                <span aria-hidden="true">★★★★★</span>
+                <span class="card__rating-label" aria-label="5 van de 5 sterren">
+                  5.0
+                </span>
+              </p>
+              <h3 class="card__name">Fatima, Zaandam</h3>
+              <p class="card__meta">Verstopte afvoer</p>
+              <p class="card__text">
+                Kwam snel langs, werkt rustig en netjes. Geen rommel achteraf en
+                de afvoer loopt weer perfect.
+              </p>
+            </article>
+
+            <article class="card card--review">
+              <p class="card__rating">
+                <span aria-hidden="true">★★★★★</span>
+                <span class="card__rating-label" aria-label="5 van de 5 sterren">
+                  5.0
+                </span>
+              </p>
+              <h3 class="card__name">Jeroen, Amstelveen</h3>
+              <p class="card__meta">Badkamer renovatie (demo)</p>
+              <p class="card__text">
+                binnen 5 werkdagen had ik een offerte, fijn contact gehad en uitstekend eind resultaat.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= PORTFOLIO / RECENT WORK ========================= -->
+      <section class="section section--muted" aria-labelledby="portfolio-heading">
+        <div class="container">
+          <header class="section-heading">
+            <h2 class="section-heading__title" id="portfolio-heading" data-i18n="portfolio-heading">
+              Our Recent Projects
+            </h2>
+            <p class="section-heading__subtitle" data-i18n="portfolio-subtitle">
+              Professional plumbing installations and renovations throughout Hengelo.
+            </p>
+          </header>
+
+          <div class="grid grid--portfolio">
+            <article class="portfolio-card">
+              <div class="portfolio-card__image">
+                <img
+                  src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=500&h=400&fit=crop"
+                  alt="Modern bathroom renovation with blue tiles and new plumbing fixtures"
+                  width="500"
+                  height="400"
+                  loading="lazy"
+                  class="portfolio-card__img"
+                />
+              </div>
+              <div class="portfolio-card__content">
+                <h3 class="portfolio-card__title">Verbouwing van een badkamer in hengelo</h3>
+                <p class="portfolio-card__text">
+                  Complete badkamer verbouwing, nieuwe tegels, leidingen en extra toilet. 
+                  
+                </p>
+              </div>
+            </article>
+
+            <article class="portfolio-card">
+              <div class="portfolio-card__image">
+                <img
+                  src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=500&h=400&fit=crop"
+                  alt="Kitchen renovation showing stainless steel sink and new water lines"
+                  width="500"
+                  height="400"
+                  loading="lazy"
+                  class="portfolio-card__img"
+                />
+              </div>
+              <div class="portfolio-card__content">
+                <h3 class="portfolio-card__title">Keuken reparatie</h3>
+                <p class="portfolio-card__text">
+                  Een kleine lekage onder de wasbak in de keuken, de zelfde dag nog op kunnen lossen.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================= SECONDARY CTA SECTION ========================= -->
+      <section class="section" aria-labelledby="final-cta-heading">
+        <div class="container" style="text-align: center;">
+          <h2 class="section-heading__title" id="final-cta-heading" style="margin-bottom: 0.8rem;" data-i18n="final-cta-heading">
+            Ready to Solve Your Plumbing Problem?
+          </h2>
+          <p style="color: var(--color-text-muted); margin-bottom: var(--space-lg); font-size: 1.1rem;" data-i18n="final-cta-text">
+            Call us now for same-day emergency service or book your appointment online.
+          </p>
+          <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+            <a href="tel:+31612345678" class="btn btn--primary" data-i18n="final-cta-call">
+              Call Now
+            </a>
+            <a href="contact.html" class="btn btn--ghost" data-i18n="final-cta-message">
+              Send Message
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================= GLOBAL FOOTER ========================= -->
+    <footer class="site-footer">
+      <div class="container site-footer__inner">
+        <!-- 
+          Footer simplified:
+          - Navigation links removed, as requested.
+          - Content centered with only core business info and copyright.
+        -->
+        <div class="site-footer__brand">
+          <span class="site-footer__title">De Natte Krant Loodgieters</span>
+          <p class="site-footer__text">
+            Demo-portfolio voor een moderne loodgieterswebsite. Vervang deze
+            tekst door uw echte bedrijfsgegevens.
+          </p>
+        </div>
+        <p class="site-footer__legal">
+          &copy; <span id="footer-year"></span> De Natte Krant Loodgieters. Alle rechten voorbehouden.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Shared JavaScript for all pages -->
+    <script src="script.js"></script>
+  </body>
+</html>
+

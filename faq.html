@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- 
+      De Natte Krant Loodgieters - FAQ Page
+      ------------------------------------------------------------------
+      This page contains frequently asked questions in collapsible sections.
+
+      FUNCTIONALITY:
+      - Each FAQ item is a button + answer panel.
+      - script.js attaches click handlers to toggle open/closed state and
+        handles ARIA attributes for accessibility.
+      - Smooth expand/collapse is handled via CSS transitions.
+
+      DYNAMIC CONTENT:
+      - FAQ items can be loaded from content.json via script.js.
+      - The container with data-dynamic="faqs" is the hook for JS.
+
+      HOW TO EDIT OR ADD FAQ ITEMS:
+      - Recommended: Edit content.json and adjust the "faqs" array:
+          {
+            "id": "unique-faq-id",
+            "question": "Short question?",
+            "answer": "Clear answer in 1–3 sentences."
+          }
+      - Non-technical edit: Modify or extend the static fallback
+        .faq-item blocks below, but keep the structure and classes.
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Frequently asked questions about plumbing services in Hengelo. Emergency response, pricing, scheduling. De Natte Krant Loodgieters." />
+    <title>FAQ | Plumber in Hengelo | De Natte Krant Loodgieters</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body data-page="faq">
+    <!-- ========================= HEADER & NAV ========================= -->
+    <header class="site-header" id="top">
+      <div class="container site-header__inner">
+        <a href="index.html" class="site-header__brand">
+          <img
+            src="assets/images/logo.svg"
+            alt="De Natte Krant Loodgieters logo"
+            class="site-header__logo"
+            width="40"
+            height="40"
+          />
+          <span class="site-header__title">De Natte Krant Loodgieters</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <!-- Language Switcher -->
+          <div class="language-switcher">
+            <button class="language-btn active" data-lang="en" aria-label="English">EN</button>
+            <button class="language-btn" data-lang="nl" aria-label="Dutch (Nederlands)">NL</button>
+            <button class="language-btn" data-lang="de" aria-label="German (Deutsch)">DE</button>
+          </div>
+
+          <ul class="site-nav__list">
+            <li class="site-nav__item">
+              <a href="index.html" class="site-nav__link">Home</a>
+            </li>
+            <li class="site-nav__item">
+              <a href="services.html" class="site-nav__link">Services</a>
+            </li>
+            <li class="site-nav__item">
+              <a href="faq.html" class="site-nav__link site-nav__link--active"
+                >FAQ</a
+              >
+            </li>
+            <li class="site-nav__item">
+              <a href="contact.html" class="site-nav__link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ========================= MAIN CONTENT ========================= -->
+    <main class="site-main">
+      <section class="page-header" aria-labelledby="faq-heading">
+        <div class="container">
+          <h1 class="page-header__title" id="faq-heading" data-i18n="faq-page-title">
+            Veelgestelde vragen
+          </h1>
+          <p class="page-header__subtitle" data-i18n="faq-page-subtitle">
+            Duidelijke antwoorden op typische vragen van klanten. Pas de
+            voorbeelden hieronder aan naar uw eigen praktijk.
+          </p>
+        </div>
+      </section>
+
+      <!-- FAQ accordion section -->
+      <section class="section" aria-label="Veelgestelde vragen over loodgieterswerk">
+        <div class="container">
+          <!-- 
+            Dynamic FAQ container:
+            - script.js looks for data-dynamic="faqs".
+            - When content.json is fetched successfully, this container is
+              cleared and re-filled with FAQ items from JSON.
+          -->
+          <div class="faq-list" id="faq-list" data-dynamic="faqs">
+            <!-- 
+              STATIC FALLBACK FAQ ITEMS
+              --------------------------------------------------------------
+              These appear by default and remain if JSON loading fails or JS
+              is disabled. You can edit or duplicate these blocks directly.
+            -->
+            <article class="faq-item">
+              <h3 class="faq-item__question">
+                <button
+                  class="faq-item__button"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="faq-answer-1"
+                >
+                  <span data-i18n="faq-1-q">Werkt u ook in de avond of in het weekend?</span>
+                  <span class="faq-item__icon" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <div
+                class="faq-item__answer"
+                id="faq-answer-1"
+                role="region"
+                aria-hidden="true"
+              >
+                <p data-i18n="faq-1-a">
+                  Deze demo gaat uit van een flexibele loodgieter die ook
+                  buiten kantoortijden beschikbaar kan zijn voor spoedgevallen.
+                  Vul hier uw echte bereikbaarheid in, bijvoorbeeld: 24/7,
+                  werkdagen tot 21:00, alleen op afspraak, etc.
+                </p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <h3 class="faq-item__question">
+                <button
+                  class="faq-item__button"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="faq-answer-2"
+                >
+                  <span data-i18n="faq-2-q">Wat kost een gemiddelde klus?</span>
+                  <span class="faq-item__icon" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <div
+                class="faq-item__answer"
+                id="faq-answer-2"
+                role="region"
+                aria-hidden="true"
+              >
+                <p data-i18n="faq-2-a">
+                  Voor een echte website vult u hier uw uurtarief, starttarief
+                  en eventuele voorrijkosten in. In deze demo kunt u
+                  aangeven dat iedere situatie anders is en dat u graag
+                  een vrijblijvende offerte maakt.
+                </p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <h3 class="faq-item__question">
+                <button
+                  class="faq-item__button"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="faq-answer-3"
+                >
+                  <span data-i18n="faq-3-q">Werkt u samen met andere vakmensen?</span>
+                  <span class="faq-item__icon" aria-hidden="true">+</span>
+                </button>
+              </h3>
+              <div
+                class="faq-item__answer"
+                id="faq-answer-3"
+                role="region"
+                aria-hidden="true"
+              >
+                <p data-i18n="faq-3-a">
+                  Hier kunt u uitleggen of u samenwerkt met aannemers,
+                  elektriciens of tegelzetters, zodat klanten weten dat u een
+                  complete oplossing kunt aanbieden.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <p class="section__note" data-i18n="faq-note">
+            Tip: beheer alle veelgestelde vragen centraal in
+            <code>content.json</code>. Script.js laadt dit bestand in en bouwt
+            de uitklapbare items automatisch op.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================= FOOTER ========================= -->
+    <footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <span class="site-footer__title">De Natte Krant Loodgieters</span>
+      <p class="site-footer__text">
+        Demo-portfolio voor een moderne loodgieterswebsite. Vervang deze
+        tekst door uw echte bedrijfsgegevens.
+      </p>
+    </div>
+    <p class="site-footer__legal">
+      &copy; <span id="footer-year"></span> De Natte Krant Loodgieters. Alle rechten voorbehouden.
+    </p>
+  </div>
+</footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

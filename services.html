@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- 
+      De Natte Krant Loodgieters - Services Page
+      ------------------------------------------------------------------
+      This page lists all plumbing services offered.
+
+      DYNAMIC CONTENT:
+      - The service cards can be populated dynamically from content.json
+        using script.js.
+      - If JavaScript is disabled or the JSON file is missing, the static
+        fallback cards below will remain visible so the page still works.
+
+      HOW TO EDIT SERVICES:
+      - Recommended: Edit content.json in the project root and adjust
+        the "services" array. Each item has:
+          {
+            "id": "unique-id",
+            "name": "Service title",
+            "description": "Short description",
+            "icon": "emoji or short text"
+          }
+      - Non-technical edit: You can also modify the static fallback
+        <article> cards in this file, but keep the structure and classes
+        (card, card--service, etc.) so styling remains consistent.
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Professional plumbing services in Hengelo. Leaks, repairs, installations, bathroom renovations. De Natte Krant Loodgieters." />
+    <title>Plumbing Services in Hengelo | De Natte Krant Loodgieters</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body data-page="services">
+    <!-- ========================= HEADER & NAV ========================= -->
+    <header class="site-header" id="top">
+      <div class="container site-header__inner">
+        <a href="index.html" class="site-header__brand">
+          <img
+            src="assets/images/logo.svg"
+            alt="De Natte Krant Loodgieters logo"
+            class="site-header__logo"
+            width="40"
+            height="40"
+          />
+          <span class="site-header__title">De Natte Krant Loodgieters</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <!-- Language Switcher -->
+          <div class="language-switcher">
+            <button class="language-btn active" data-lang="en" aria-label="English">EN</button>
+            <button class="language-btn" data-lang="nl" aria-label="Dutch (Nederlands)">NL</button>
+            <button class="language-btn" data-lang="de" aria-label="German (Deutsch)">DE</button>
+          </div>
+
+          <ul class="site-nav__list">
+            <li class="site-nav__item">
+              <a href="index.html" class="site-nav__link">Home</a>
+            </li>
+            <li class="site-nav__item">
+              <a href="services.html" class="site-nav__link site-nav__link--active"
+                >Services</a
+              >
+            </li>
+            <li class="site-nav__item">
+              <a href="faq.html" class="site-nav__link">FAQ</a>
+            </li>
+            <li class="site-nav__item">
+              <a href="contact.html" class="site-nav__link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ========================= MAIN CONTENT ========================= -->
+    <main class="site-main">
+      <!-- Page heading and intro -->
+      <section class="page-header" aria-labelledby="services-heading">
+        <div class="container">
+          <h1 class="page-header__title" id="services-heading" data-i18n="services-page-title">
+            Loodgietersdiensten op maat
+          </h1>
+          <p class="page-header__subtitle" data-i18n="services-page-subtitle">
+            Onderstaande lijst toont typische diensten van een moderne
+            loodgieter. Pas de inhoud aan op basis van uw eigen aanbod.
+          </p>
+        </div>
+      </section>
+
+      <!-- Services grid -->
+      <section class="section" aria-label="Overzicht van diensten">
+        <div class="container">
+          <!-- 
+            Dynamic services container:
+            - script.js looks for the data-dynamic="services" attribute.
+            - When content.json is loaded successfully, this container
+              is cleared and re-populated with cards based on the JSON.
+          -->
+          <div
+            class="grid grid--services"
+            id="services-grid"
+            data-dynamic="services"
+          >
+            <!-- 
+              STATIC FALLBACK CARDS
+              --------------------------------------------------------------
+              These are shown:
+              - immediately on page load, before the JSON is fetched.
+              - permanently, if JSON loading fails or JavaScript is disabled.
+              You can safely edit these if you do not wish to use the JSON.
+            -->
+            <article class="card card--service">
+              <div class="card__icon" aria-hidden="true">
+                <!-- Service icon: leakage & piping -->
+                <img
+                  src="assets/images/icon-leak.svg"
+                  alt=""
+                  class="card__icon-image"
+                />
+              </div>
+              <h3 class="card__title" data-i18n="service-1-title">Lekkage &amp; leidingwerk</h3>
+              <p class="card__text" data-i18n="service-1-desc">
+                Reparatie van lekkende leidingen, kranen en koppelingen. Inclusief
+                opsporen van verborgen lekkages.
+              </p>
+            </article>
+
+            <article class="card card--service">
+              <div class="card__icon" aria-hidden="true">
+                <!-- Service icon: drain / unclogging -->
+                <img
+                  src="assets/images/icon-drain.svg"
+                  alt=""
+                  class="card__icon-image"
+                />
+              </div>
+              <h3 class="card__title" data-i18n="service-2-title">Verstoppingen</h3>
+              <p class="card__text" data-i18n="service-2-desc">
+                Ontstoppen van afvoeren, toiletten en gootstenen met professioneel
+                gereedschap en zonder onnodige schade.
+              </p>
+            </article>
+
+            <article class="card card--service">
+              <div class="card__icon" aria-hidden="true">
+                <!-- Service icon: bathroom & kitchen -->
+                <img
+                  src="assets/images/icon-bathroom.svg"
+                  alt=""
+                  class="card__icon-image"
+                />
+              </div>
+              <h3 class="card__title" data-i18n="service-3-title">Badkamer &amp; keuken</h3>
+              <p class="card__text" data-i18n="service-3-desc">
+                Plaatsen en vervangen van kranen, douches, toiletten en
+                keukenapparatuur met oog voor detail.
+              </p>
+            </article>
+
+            <article class="card card--service">
+              <div class="card__icon" aria-hidden="true">
+                <!-- Service icon: heating -->
+                <img
+                  src="assets/images/icon-heating.svg"
+                  alt=""
+                  class="card__icon-image"
+                />
+              </div>
+              <h3 class="card__title" data-i18n="service-4-title">Verwarming</h3>
+              <p class="card__text" data-i18n="service-4-desc">
+                Aanleg en onderhoud van leidingen voor radiatoren en vloerverwarming
+                in samenwerking met erkende installateurs.
+              </p>
+            </article>
+
+            <article class="card card--service">
+              <div class="card__icon" aria-hidden="true">
+                <!-- Service icon: renovation & new build -->
+                <img
+                  src="assets/images/icon-house.svg"
+                  alt=""
+                  class="card__icon-image"
+                />
+              </div>
+              <h3 class="card__title" data-i18n="service-5-title">Renovatie &amp; nieuwbouw</h3>
+              <p class="card__text" data-i18n="service-5-desc">
+                Complete aanleg van water- en afvoerleidingen bij verbouwingen en
+                nieuwbouwprojecten.
+              </p>
+            </article>
+
+            <article class="card card--service">
+              <div class="card__icon" aria-hidden="true">
+                <!-- Service icon: emergency / urgent service -->
+                <img
+                  src="assets/images/icon-clock.svg"
+                  alt=""
+                  class="card__icon-image"
+                />
+              </div>
+              <h3 class="card__title" data-i18n="service-6-title">Spoedservice</h3>
+              <p class="card__text" data-i18n="service-6-desc">
+                Beschikbaar voor urgente storingen en lekkages, zodat schade
+                beperkt blijft en u snel geholpen bent.
+              </p>
+            </article>
+          </div>
+
+          <!-- Simple note for editors -->
+          <p class="section__note" data-i18n="services-note">
+            Tip voor ontwikkelaars: beheer de volledige lijst van diensten in
+            <code>content.json</code>. Script.js leest dat bestand in en vult
+            deze sectie automatisch.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========================= FOOTER ========================= -->
+    <footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <span class="site-footer__title">De Natte Krant Loodgieters</span>
+      <p class="site-footer__text">
+        Demo-portfolio voor een moderne loodgieterswebsite. Vervang deze
+        tekst door uw echte bedrijfsgegevens.
+      </p>
+    </div>
+    <p class="site-footer__legal">
+      &copy; <span id="footer-year"></span> De Natte Krant Loodgieters. Alle rechten voorbehouden.
+    </p>
+  </div>
+</footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+

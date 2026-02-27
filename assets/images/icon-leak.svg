@@ -1,0 +1,11 @@
+<!-- 
+  Icon: Leak / wrench
+  Used for leakage & repair services.
+-->
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+  <rect x="2" y="2" width="28" height="28" rx="8" fill="#0B3D91" fill-opacity="0.06"/>
+  <path d="M9 20L16 13.5L18.5 16L11.5 23H9V20Z" fill="#0B3D91"/>
+  <path d="M19.2 14.8L21 13C22.1046 11.8954 22.1046 10.1046 21 9C20.5355 8.53553 19.951 8.24021 19.3386 8.1407L18.4 9.0793L17 7.6793L17.9407 6.73863C17.8412 6.12621 17.5459 5.54168 17.0814 5.07721C15.9768 3.97264 14.186 3.97264 13.0814 5.07721L11.2 6.95863" stroke="#0B3D91" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M22.5 20.5C22.5 22 21 23.5 21 23.5C21 23.5 19.5 22 19.5 20.5C19.5 19.3954 20.3954 18.5 21.5 18.5C22.6046 18.5 23.5 19.3954 23.5 20.5Z" fill="#D7263D"/>
+</svg>
+

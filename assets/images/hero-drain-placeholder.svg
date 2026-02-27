@@ -1,0 +1,61 @@
+<!-- 
+  Hero drain placeholder image
+  ------------------------------------------------------------------
+  This is a copyright-free, custom vector that mimics a top-down
+  photo of a metal drain with water ripples. It is used as the
+  hero background image and can be replaced later with a real photo.
+-->
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="drainTitle drainDesc">
+  <title id="drainTitle">Abstract top view of a sink drain</title>
+  <desc id="drainDesc">A stylised illustration of a metal drain surrounded by soft blue water ripples.</desc>
+  <defs>
+    <radialGradient id="waterGrad" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(600 350) rotate(90) scale(420 620)">
+      <stop offset="0" stop-color="#E5F3FF"/>
+      <stop offset="0.45" stop-color="#C7DBFF"/>
+      <stop offset="1" stop-color="#94B6F7"/>
+    </radialGradient>
+    <radialGradient id="drainOuter" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(600 350) scale(130)">
+      <stop offset="0" stop-color="#CBD5E1"/>
+      <stop offset="1" stop-color="#4B5563"/>
+    </radialGradient>
+    <radialGradient id="drainInner" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(600 350) scale(70)">
+      <stop offset="0" stop-color="#020617"/>
+      <stop offset="1" stop-color="#111827"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Water background -->
+  <rect width="1200" height="700" fill="url(#waterGrad)"/>
+
+  <!-- Soft concentric ripples -->
+  <circle cx="600" cy="350" r="260" stroke="#EFF6FF" stroke-width="2" opacity="0.55"/>
+  <circle cx="600" cy="350" r="340" stroke="#E0EAFF" stroke-width="1.4" opacity="0.3"/>
+  <circle cx="600" cy="350" r="410" stroke="#D0DEFF" stroke-width="1" opacity="0.22"/>
+
+  <!-- Main drain outer ring -->
+  <circle cx="600" cy="350" r="120" fill="url(#drainOuter)"/>
+  <circle cx="600" cy="350" r="104" fill="#111827"/>
+
+  <!-- Inner dark opening -->
+  <circle cx="600" cy="350" r="64" fill="url(#drainInner)"/>
+
+  <!-- Drain holes -->
+  <circle cx="560" cy="322" r="9" fill="#020617"/>
+  <circle cx="640" cy="322" r="9" fill="#020617"/>
+  <circle cx="560" cy="378" r="9" fill="#020617"/>
+  <circle cx="640" cy="378" r="9" fill="#020617"/>
+  <circle cx="600" cy="302" r="9" fill="#020617"/>
+  <circle cx="600" cy="398" r="9" fill="#020617"/>
+
+  <!-- Subtle highlights on the metal ring -->
+  <path d="M516 334C533 296 565 274 600 274C635 274 667 296 684 334" stroke="#E5E7EB" stroke-width="5" stroke-linecap="round" opacity="0.65"/>
+  <path d="M684 366C667 404 635 426 600 426C565 426 533 404 516 366" stroke="#020617" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
+
+  <!-- Very subtle diagonal light streaks for texture -->
+  <path d="M220 130L980 610" stroke="white" stroke-opacity="0.06" stroke-width="2"/>
+  <path d="M260 90L1040 580" stroke="white" stroke-opacity="0.04" stroke-width="2"/>
+</svg>
+

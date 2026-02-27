@@ -1,0 +1,15 @@
+<!-- 
+  Icon: Bathroom / shower head
+  Used for bathroom & kitchen services.
+-->
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+  <rect x="2" y="2" width="28" height="28" rx="8" fill="#0B3D91" fill-opacity="0.06"/>
+  <path d="M10 14C10 11.7909 11.7909 10 14 10C16.2091 10 18 11.7909 18 14V15H10V14Z" fill="#0B3D91"/>
+  <path d="M18 13C18 11.3431 16.6569 10 15 10C13.3431 10 12 11.3431 12 13" stroke="#0B3D91" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M18 15H22V23" stroke="#0B3D91" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M10 15H9C8.44772 15 8 15.4477 8 16V19H22" stroke="#0B3D91" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="13" cy="19" r="0.8" fill="#D7263D"/>
+  <circle cx="15" cy="21" r="0.8" fill="#D7263D"/>
+  <circle cx="17" cy="19" r="0.8" fill="#D7263D"/>
+</svg>
+

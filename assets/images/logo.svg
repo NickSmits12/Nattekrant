@@ -1,0 +1,17 @@
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Wrench (primary blue) -->
+  <g transform="translate(6, 6)">
+    <path d="M8 0C12.4183 0 16 3.58172 16 8C16 11.0332 14.4199 13.6811 12 15.0659V18C12 19.1046 11.1046 20 10 20C8.89543 20 8 19.1046 8 18V15.0659C5.58008 13.6811 4 11.0332 4 8C4 3.58172 7.58172 0 8 0Z" 
+          fill="#0b3d91" 
+          opacity="0.9"/>
+    <circle cx="8" cy="8" r="2.5" fill="#ffffff"/>
+  </g>
+  
+  <!-- Water droplet (accent red) -->
+  <g transform="translate(24, 8)">
+    <path d="M8 0C8 0 4 6 4 10C4 12.2091 5.79086 14 8 14C10.2091 14 12 12.2091 12 10C12 6 8 0 8 0Z" 
+          fill="#d7263d" 
+          opacity="0.95"/>
+    <circle cx="8" cy="10" r="1.2" fill="#ffffff" opacity="0.8"/>
+  </g>
+</svg>
