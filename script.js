@@ -311,6 +311,7 @@ function initDynamicContent() {
       }
       return response.json();
     })
+     
     .then((data) => {
       dynamicContainers.forEach((container) => {
         const type = container.getAttribute("data-dynamic");
