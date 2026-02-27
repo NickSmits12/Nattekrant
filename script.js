@@ -338,16 +338,16 @@ function initDynamicContent() {
  * @param {Element} container - element with data-dynamic="services"
  * @param {Array} services - array of service objects from content.json
  */
-function buildServices(container, services) {
-  container.innerHTML = "";
+//function buildServices(container, services) {
+  //container.innerHTML = "";
 
-  services.forEach((service) => {
-    const article = document.createElement("article");
-    article.className = "card card--service";
+ //services.forEach((service) => {
+    //const article = document.createElement("article");
+    //article.className = "card card--service";
 
-    const icon = document.createElement("div");
-    icon.className = "card__icon";
-    icon.setAttribute("aria-hidden", "true");
+    //const icon = document.createElement("div");
+   // icon.className = "card__icon";
+   // icon.setAttribute("aria-hidden", "true");
    // icon.innerHTML = service.icon || '<img src="assets/images/icon-leak.svg" alt="" class="card__icon-image" />';
 
     const title = document.createElement("h2");
