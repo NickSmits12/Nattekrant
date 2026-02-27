@@ -348,7 +348,7 @@ function buildServices(container, services) {
     const icon = document.createElement("div");
     icon.className = "card__icon";
     icon.setAttribute("aria-hidden", "true");
-    icon.innerHTML = service.icon || '<img src="assets/images/icon-leak.svg" alt="" class="card__icon-image" />';
+   // icon.innerHTML = service.icon || '<img src="assets/images/icon-leak.svg" alt="" class="card__icon-image" />';
 
     const title = document.createElement("h2");
     title.className = "card__title";
