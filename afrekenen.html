@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Badkamer Renovatie - Nattekrant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Nattekrant - Producten</h1>
+  </header>
+
+  <main class="container">
+    <div class="product-container">
+      <h2 class="product-title">Badkamer Renovatie</h2>
+      <p class="product-description">
+        Testproduct: Complete badkamer renovatie. Betaal slechts €1 in testmodus om de Stripe integratie te proberen.
+      </p>
+      <button id="checkout" class="btn">Koop nu (€1)</button>
+    </div>
+  </main>
+
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    const stripe = Stripe("pk_test_51TAAAiLc89Q6vw6mgXV41WuF5JeUehoFV4oVqArFNzEnVFoac6vUZalvzPADh7961m6YsgNxCT2DoaAvhsfNQCSK00laHHBkDX");
+
+    document.getElementById("checkout").addEventListener("click", async () => {
+      const response = await fetch("/api/create-checkout-session", { method: "POST" });
+      const session = await response.json();
+      stripe.redirectToCheckout({ sessionId: session.id });
+    });
+  </script>
+</body>
+</html>
