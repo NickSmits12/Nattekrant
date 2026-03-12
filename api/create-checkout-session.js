@@ -1,6 +1,7 @@
 import Stripe from "stripe";
 
-const stripe = new Stripe("sk_test_51TAAAiLc89Q6vw6m1ASN3a5ixS6abonwcguscYKOz5fDKY1xVFQTdqciwS3M5KAzc9DvMpkcB9UPTuVsT2B0C9YQ00jTx9TOqn");
+// Haal de secret key op uit de environment variable
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
   try {
@@ -11,9 +12,9 @@ export default async function handler(req, res) {
           price_data: {
             currency: "eur",
             product_data: {
-              name: "Test Product",
+              name: "Badkamer Renovatie", // Naam van het product
             },
-            unit_amount: 100, // €1
+            unit_amount: 100, // €1 in centen
           },
           quantity: 1,
         },
@@ -25,6 +26,7 @@ export default async function handler(req, res) {
 
     res.status(200).json({ id: session.id });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: err.message });
   }
 }

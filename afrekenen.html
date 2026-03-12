@@ -30,6 +30,18 @@
       const session = await response.json();
       stripe.redirectToCheckout({ sessionId: session.id });
     });
+    document.getElementById("checkout").addEventListener("click", async () => {
+  try {
+    const response = await fetch("/api/create-checkout-session", { method: "POST" });
+    if (!response.ok) throw new Error("Fout bij aanmaken checkout session");
+    const session = await response.json();
+    const result = await stripe.redirectToCheckout({ sessionId: session.id });
+    if (result.error) alert(result.error.message);
+  } catch (err) {
+    console.error(err);
+    alert("Er is iets misgegaan bij het starten van de betaling.");
+  }
+});
   </script>
 </body>
 </html>
