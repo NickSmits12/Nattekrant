@@ -1,6 +1,5 @@
 import Stripe from "stripe";
 
-// Haal de secret key op uit de environment variable
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
@@ -12,9 +11,9 @@ export default async function handler(req, res) {
           price_data: {
             currency: "eur",
             product_data: {
-              name: "Badkamer Renovatie", // Naam van het product
+              name: "Badkamer Renovatie",
             },
-            unit_amount: 100, // €1 in centen
+            unit_amount: 100, // €1
           },
           quantity: 1,
         },
@@ -26,7 +25,7 @@ export default async function handler(req, res) {
 
     res.status(200).json({ id: session.id });
   } catch (err) {
-    console.error(err);
+    console.error("Stripe error:", err.message);
     res.status(500).json({ error: err.message });
   }
 }
