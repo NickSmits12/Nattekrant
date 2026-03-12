@@ -7,41 +7,52 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Nattekrant - Producten</h1>
+  <!-- Header met navigatie zoals op je andere pagina's -->
+  <header class="site-header">
+    <div class="header-container">
+      <h1 class="site-title">Nattekrant</h1>
+      <nav class="site-nav">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/producten" class="nav-link">Producten</a>
+        <a href="/contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="container">
-    <div class="product-container">
-      <h2 class="product-title">Badkamer Renovatie</h2>
-      <p class="product-description">
-        Testproduct: Complete badkamer renovatie. Betaal slechts €1 in testmodus om de Stripe integratie te proberen.
-      </p>
-      <button id="checkout" class="btn">Koop nu (€1)</button>
-    </div>
+  <!-- Hoofd content -->
+  <main class="page-container">
+    <h1>Badkamer Renovatie</h1>
+    <p>Testproduct: Complete badkamer renovatie. Betaal slechts €1 in testmodus om de Stripe integratie te proberen.</p>
+    <button id="checkout" class="button">Koop nu (€1)</button>
   </main>
 
+  <!-- Footer zoals andere pagina's -->
+  <footer class="site-footer">
+    <p>&copy; 2026 Nattekrant. Alle rechten voorbehouden.</p>
+    <nav>
+      <a href="/" class="footer-link">Home</a>
+      <a href="/producten" class="footer-link">Producten</a>
+      <a href="/contact" class="footer-link">Contact</a>
+    </nav>
+  </footer>
+
+  <!-- Stripe script -->
   <script src="https://js.stripe.com/v3/"></script>
   <script>
     const stripe = Stripe("pk_test_51TAAAiLc89Q6vw6mgXV41WuF5JeUehoFV4oVqArFNzEnVFoac6vUZalvzPADh7961m6YsgNxCT2DoaAvhsfNQCSK00laHHBkDX");
 
     document.getElementById("checkout").addEventListener("click", async () => {
-      const response = await fetch("/api/create-checkout-session", { method: "POST" });
-      const session = await response.json();
-      stripe.redirectToCheckout({ sessionId: session.id });
+      try {
+        const response = await fetch("/api/create-checkout-session", { method: "POST" });
+        if (!response.ok) throw new Error("Fout bij aanmaken checkout session");
+        const session = await response.json();
+        const result = await stripe.redirectToCheckout({ sessionId: session.id });
+        if (result.error) alert(result.error.message);
+      } catch (err) {
+        console.error(err);
+        alert("Er is iets misgegaan bij het starten van de betaling.");
+      }
     });
-    document.getElementById("checkout").addEventListener("click", async () => {
-  try {
-    const response = await fetch("/api/create-checkout-session", { method: "POST" });
-    if (!response.ok) throw new Error("Fout bij aanmaken checkout session");
-    const session = await response.json();
-    const result = await stripe.redirectToCheckout({ sessionId: session.id });
-    if (result.error) alert(result.error.message);
-  } catch (err) {
-    console.error(err);
-    alert("Er is iets misgegaan bij het starten van de betaling.");
-  }
-});
   </script>
 </body>
 </html>
