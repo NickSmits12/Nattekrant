@@ -19,7 +19,7 @@ export default async function handler(req, res) {
         },
       ],
       mode: "payment",
-      succes_url: "https://nattekrant.vercel.app/succes.html",
+      success_url: "https://nattekrant.vercel.app/succes.html",
       cancel_url: "https://nattekrant.vercel.app/cancel.html",
     });
 
