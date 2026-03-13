@@ -1,10 +1,305 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Badkamer Renovatie - Nattekrant</title>
+  <title>Lekkage Reparatie - Nattekrant</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Pagina-specifieke stijlen (raakt je style.css niet aan) -->
+  <style>
+    /* ── Variabelen ───────────────────────────────────────── */
+    :root {
+      --nk-blue:       #2563eb;
+      --nk-blue-dark:  #1d4ed8;
+      --nk-navy:       #0f172a;
+      --nk-gray:       #64748b;
+      --nk-light-bg:   #f0f5ff;
+      --nk-card-bg:    #f8faff;
+      --nk-border:     #e2e8f0;
+      --nk-radius:     14px;
+    }
+
+    /* ── Reset voor page-sections ─────────────────────────── */
+    .lk-section {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       1. HERO
+    ══════════════════════════════════════════════════════ */
+    .lk-hero {
+      background: #fff;
+      padding: 72px 24px 80px;
+    }
+
+    .lk-hero__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .lk-hero__headline {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--nk-navy);
+      line-height: 1.15;
+      margin: 0 0 8px;
+    }
+
+    .lk-hero__price {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--nk-blue);
+      line-height: 1.15;
+      margin: 0 0 24px;
+    }
+
+    .lk-hero__desc {
+      font-size: 1.05rem;
+      color: var(--nk-gray);
+      line-height: 1.7;
+      margin: 0 0 36px;
+      max-width: 460px;
+    }
+
+    .lk-btn-primary {
+      display: inline-block;
+      background: var(--nk-blue);
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 18px 40px;
+      border-radius: var(--nk-radius);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.18s ease, transform 0.12s ease;
+      width: 100%;
+      text-align: center;
+    }
+
+    .lk-btn-primary:hover {
+      background: var(--nk-blue-dark);
+      transform: translateY(-1px);
+    }
+
+    .lk-hero__img-wrap {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(37, 99, 235, 0.12);
+      aspect-ratio: 4/3;
+      background: var(--nk-light-bg);
+    }
+
+    .lk-hero__img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* placeholder als er nog geen afbeelding is */
+    .lk-hero__img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--nk-blue);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       2. TRUST BADGES
+    ══════════════════════════════════════════════════════ */
+    .lk-trust {
+      background: var(--nk-light-bg);
+      padding: 64px 24px;
+    }
+
+    .lk-trust__inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+
+    .lk-trust__item {}
+
+    .lk-trust__icon {
+      width: 68px;
+      height: 68px;
+      background: #dbeafe;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .lk-trust__icon svg {
+      width: 30px;
+      height: 30px;
+      stroke: var(--nk-blue);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .lk-trust__title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--nk-navy);
+      margin: 0 0 10px;
+    }
+
+    .lk-trust__desc {
+      font-size: 0.92rem;
+      color: var(--nk-gray);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       3. BOOKING / STRIPE SECTIE
+    ══════════════════════════════════════════════════════ */
+    .lk-booking {
+      background: #fff;
+      padding: 80px 24px;
+    }
+
+    .lk-booking__inner {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .lk-booking__title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: var(--nk-navy);
+      margin: 0 0 14px;
+    }
+
+    .lk-booking__subtitle {
+      font-size: 1rem;
+      color: var(--nk-gray);
+      line-height: 1.6;
+      margin: 0 0 36px;
+    }
+
+    .lk-order-card {
+      background: var(--nk-card-bg);
+      border: 1px solid var(--nk-border);
+      border-radius: var(--nk-radius);
+      padding: 24px 28px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .lk-order-card__label {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--nk-navy);
+      margin: 0 0 16px;
+    }
+
+    .lk-order-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--nk-border);
+    }
+
+    .lk-order-row:last-child {
+      border-bottom: none;
+    }
+
+    .lk-order-row__name {
+      color: var(--nk-navy);
+    }
+
+    .lk-order-row__price {
+      font-weight: 700;
+      color: var(--nk-navy);
+    }
+
+    .lk-order-row__price--muted {
+      font-weight: 400;
+      color: var(--nk-gray);
+    }
+
+    .lk-btn-stripe {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--nk-blue);
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 20px 32px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.18s ease, transform 0.12s ease;
+    }
+
+    .lk-btn-stripe:hover {
+      background: var(--nk-blue-dark);
+      transform: translateY(-1px);
+    }
+
+    .lk-btn-stripe svg {
+      width: 20px;
+      height: 20px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .lk-hero__inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .lk-hero__img-wrap {
+        order: -1;
+      }
+
+      .lk-trust__inner {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .lk-btn-primary {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header met navigatie zoals op je andere pagina's -->
+
+  <!-- ── Header (ongewijzigd) ─────────────────────────────── -->
   <header class="site-header">
     <div class="header-container">
       <h1 class="site-title">Nattekrant</h1>
@@ -16,14 +311,125 @@
     </div>
   </header>
 
-  <!-- Hoofd content -->
-  <main class="page-container">
-    <h1>Badkamer Renovatie</h1>
-    <p>Testproduct: Complete badkamer renovatie. Betaal slechts €1 in testmodus om de Stripe integratie te proberen.</p>
-    <button id="checkout" class="button">Koop nu (€1)</button>
+  <main>
+
+    <!-- ══════════════════════════════════════════════════════
+         1. HERO SECTIE
+    ══════════════════════════════════════════════════════ -->
+    <section class="lk-section lk-hero">
+      <div class="lk-hero__inner">
+
+        <!-- Linker tekst kolom -->
+        <div class="lk-hero__copy">
+          <h2 class="lk-hero__headline">Stop de lekkage.</h2>
+          <p class="lk-hero__price">Slechts €39,99 / Uur.</p>
+          <p class="lk-hero__desc">
+            Wij repareren uitsluitend lekkages, waardoor we sneller en beter zijn dan de rest.
+            Geen verborgen kosten. Gewoon een vast uurtarief voor vakkundig loodgieterswerk.
+          </p>
+          <button class="lk-btn-primary" onclick="scrollToBooking()">
+            Boek Uw Loodgieter
+          </button>
+        </div>
+
+        <!-- Rechter afbeelding kolom -->
+        <div class="lk-hero__img-wrap">
+          <!--
+            Vervang onderstaande placeholder door jouw eigen afbeelding:
+            <img src="jouw-afbeelding.jpg" alt="Loodgieter aan het werk">
+          -->
+          <div class="lk-hero__img-placeholder">
+            <span>📷 Voeg hier jouw loodgieter foto toe:<br><code>&lt;img src="foto.jpg" alt="..."&gt;</code></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         2. TRUST BADGES
+    ══════════════════════════════════════════════════════ -->
+    <section class="lk-section lk-trust">
+      <div class="lk-trust__inner">
+
+        <!-- Badge 1: Gecertificeerd -->
+        <div class="lk-trust__item">
+          <div class="lk-trust__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="lk-trust__title">Gecertificeerd &amp; Verzekerd</h3>
+          <p class="lk-trust__desc">Uw eigendom is 100% beschermd.</p>
+        </div>
+
+        <!-- Badge 2: Betrouwbaar personeel -->
+        <div class="lk-trust__item">
+          <div class="lk-trust__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 8v4m0 4h.01"/>
+            </svg>
+          </div>
+          <h3 class="lk-trust__title">Betrouwbaar Personeel</h3>
+          <p class="lk-trust__desc">Veilige en respectvolle vakmensen.</p>
+        </div>
+
+        <!-- Badge 3: Uitgeruste bussen -->
+        <div class="lk-trust__item">
+          <div class="lk-trust__icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h3 class="lk-trust__title">Volledig Uitgeruste Bussen</h3>
+          <p class="lk-trust__desc">We lossen het bij het eerste bezoek op.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════
+         3. BOOKING / STRIPE SECTIE
+    ══════════════════════════════════════════════════════ -->
+    <section class="lk-section lk-booking" id="booking">
+      <div class="lk-booking__inner">
+
+        <h2 class="lk-booking__title">Bevestig Uw Afspraak</h2>
+        <p class="lk-booking__subtitle">
+          Reserveer uw loodgieter door vandaag het eerste uur (€39,99) veilig te betalen via Stripe.
+        </p>
+
+        <!-- Besteloverzicht -->
+        <div class="lk-order-card">
+          <p class="lk-order-card__label">Besteloverzicht</p>
+
+          <div class="lk-order-row">
+            <span class="lk-order-row__name">Lekkage Reparatie (Borg 1e Uur)</span>
+            <span class="lk-order-row__price">€39,99</span>
+          </div>
+
+          <div class="lk-order-row">
+            <span class="lk-order-row__name">Extra Tijd (Gefactureerd na afronding)</span>
+            <span class="lk-order-row__price lk-order-row__price--muted">€39,99 / uur</span>
+          </div>
+        </div>
+
+        <!-- Stripe betaalknop -->
+        <button id="checkout" class="lk-btn-stripe">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+          Betaal €39,99 Borg via Stripe
+        </button>
+
+      </div>
+    </section>
+
   </main>
 
-  <!-- Footer zoals andere pagina's -->
+  <!-- ── Footer (ongewijzigd) ─────────────────────────────── -->
   <footer class="site-footer">
     <p>&copy; 2026 Nattekrant. Alle rechten voorbehouden.</p>
     <nav>
@@ -33,7 +439,7 @@
     </nav>
   </footer>
 
-  <!-- Stripe script -->
+  <!-- ── Stripe (ongewijzigd) ──────────────────────────────── -->
   <script src="https://js.stripe.com/v3/"></script>
   <script>
     const stripe = Stripe("pk_test_51TAAAiLc89Q6vw6mgXV41WuF5JeUehoFV4oVqArFNzEnVFoac6vUZalvzPADh7961m6YsgNxCT2DoaAvhsfNQCSK00laHHBkDX");
@@ -50,6 +456,12 @@
         alert("Er is iets misgegaan bij het starten van de betaling.");
       }
     });
+
+    // Smooth scroll naar booking sectie
+    function scrollToBooking() {
+      document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+    }
   </script>
+
 </body>
-</html
+</html>
